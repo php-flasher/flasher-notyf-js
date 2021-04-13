@@ -59,7 +59,7 @@ export default [
       styles(),
     ],
     output: [
-      { file: pkg.main.replace('.js', '.cjs.js'), format: 'cjs', globals },
+      { file: pkg.main.replace('.js', '.cjs.js'), format: 'cjs', globals, exports: 'auto' },
       { file: pkg.main.replace('.js', '.es.js'), format: 'es', globals },
     ],
   },
