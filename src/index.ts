@@ -12,6 +12,30 @@ export default class NotyfFactory implements FlasherInterface {
   }
 
   renderOptions(options: FlasherOptions): void {
+    const nOptions = options as unknown as INotyfOptions;
+
+    nOptions.types = nOptions.types || [];
+
+    nOptions.types.push({
+      type: 'info',
+      className: 'notyf__toast--info',
+      backgroundColor: '#5784E5',
+      icon: {
+        className: 'notyf__icon--warning',
+        tagName: 'i',
+      },
+    });
+
+    nOptions.types.push({
+      type: 'warning',
+      className: 'notyf__toast--warning',
+      backgroundColor: '#E3A008',
+      icon: {
+        className: 'notyf__icon--warning',
+        tagName: 'i',
+      },
+    });
+
     this.notyf = this.notyf || new Notyf(options as Partial<INotyfOptions>);
   }
 }
