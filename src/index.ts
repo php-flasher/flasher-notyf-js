@@ -8,7 +8,9 @@ export default class NotyfFactory implements FlasherInterface {
   private notyf?: Notyf;
 
   render(envelope: Envelope): void {
-    this.notyf?.open(envelope.notification);
+    const options = {...envelope.notification, ...envelope.notification.options};
+
+    this.notyf?.open(options);
   }
 
   renderOptions(options: FlasherOptions): void {
@@ -36,7 +38,7 @@ export default class NotyfFactory implements FlasherInterface {
       },
     });
 
-    this.notyf = this.notyf || new Notyf(options as Partial<INotyfOptions>);
+    this.notyf = this.notyf || new Notyf(nOptions as Partial<INotyfOptions>);
   }
 }
 
